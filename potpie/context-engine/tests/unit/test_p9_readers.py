@@ -764,9 +764,7 @@ class TestTimelineReader:
         }
 
         by_service = reader.read(
-            ReadRequest(
-                pot_id="pot-1", scope={"service": "checkout-api"}, max_items=10
-            )
+            ReadRequest(pot_id="pot-1", scope={"service": "checkout-api"}, max_items=10)
         )
         assert _timeline_activity_keys(by_service) == {"activity:github:pr:alpha"}
 
@@ -794,9 +792,7 @@ class TestTimelineReader:
                 max_items=10,
             )
         )
-        assert _timeline_activity_keys(by_repo_and_path) == {
-            "activity:github:pr:alpha"
-        }
+        assert _timeline_activity_keys(by_repo_and_path) == {"activity:github:pr:alpha"}
 
         beta = reader.read(
             ReadRequest(
